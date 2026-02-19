@@ -81,8 +81,7 @@
 
                 </div>
                 <div v-else class="mt-[15px]">
-                    <p class="font-rubik text-grayish-blue">{{ post.content }}</p>
-
+                    <FormattedContent :content="post.content" />
                 </div>
 
                 <div
@@ -142,10 +141,12 @@
 import { router, usePage } from '@inertiajs/vue3'
 import { useToast } from 'vue-toastification'
 import Modal from './Modal.vue';
+import FormattedContent from './FormattedContent.vue';
 export default {
     name: 'UserPost',
     components: {
-        Modal
+        Modal,
+        FormattedContent,
     },
 
     data() {

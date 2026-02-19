@@ -41,12 +41,7 @@
                 </div>
 
                 <div class="mt-[15px]">
-                    <p class="font-rubik text-grayish-blue">
-                        {{ post.content }}
-                    
-                  
-                    </p>
-
+                    <FormattedContent :content="post.content" />
                 </div>
             </div>
 
@@ -82,11 +77,13 @@
 
 <script>
 import Replying from './Replying.vue';
+import FormattedContent from './FormattedContent.vue';
 export default {
     name: 'Post',
-    
+
     components: {
         Replying,
+        FormattedContent,
     },
 
     props: {
