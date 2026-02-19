@@ -36,11 +36,13 @@ export default {
           this.formattedHtml = '';
           return;
         }
-        marked.parse(value).then((raw) => {
-          this.formattedHtml = DOMPurify.sanitize(raw ?? '', ALLOWED);
-        }).catch(() => {
-          this.formattedHtml = DOMPurify.sanitize(value.replace(/</g, '&lt;').replace(/>/g, '&gt;'), ALLOWED);
-        });
+        try {
+          const raw = marked.parse(value, { async: false });
+          this.formattedHtml = DOMPurify.sanitize(String(raw ?? ''), ALLOWED);
+        } catch {
+          const escaped = value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          this.formattedHtml = DOMPurify.sanitize(escaped, ALLOWED);
+        }
       },
     },
   },
