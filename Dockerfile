@@ -6,14 +6,14 @@ SHELL ["/bin/bash", "-c"]
 
 ENV PHP_MAX_EXECUTION_TIME 110
 # Copy the project files into the container
-COPY . /mini-sm-forum/production/
+COPY . /production/mini-sm-forum/
 
 # Set the laravel web folder
-ARG WEB_PATH=/mini-sm-forum/production/public
+ARG WEB_PATH=/production/mini-sm-forum/public
 ENV WEB_DOCUMENT_ROOT=$WEB_PATH
 
 # set the correct laravel app foler
-ARG LARAVEL_PATH=/mini-sm-forum/production
+ARG LARAVEL_PATH=/production/mini-sm-forum
 WORKDIR $LARAVEL_PATH
 
 # # Install Node.js and npm
