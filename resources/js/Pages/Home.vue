@@ -1,16 +1,19 @@
 <template>
-  <div class="flex flex-col last:justify-center items-center min-h-screen pt-10 gap-[8px]">
+  <div class="flex justify-between flex-col items-center min-h-screen pt-10 gap-[8px]">
     <!-- <Modal v-if="isDeleting" @close="toggleModal"></Modal> -->
-    <Navbar class="mb-10"></Navbar>
 
     <!-- <p class="text-2xl text-bold text-red-400">Welcome to Inertia.js with Vue and Tailwind CSS!</p> -->
+    <div class="flex w-full flex-col items-center min-h-s pt-10 gap-[8px]">
+         <Navbar class="mb-10"></Navbar>
 
-    <div class="flex flex-col justify-center items-end gap-4 w-full px-3 md:w-auto">
-      <Thread 
-      :posts="posts"
-      ></Thread>
-      <!-- <Post></Post> -->
-      <!-- <UserPost @delete="toggleModal"></UserPost> -->
+         <div class="flex flex-col justify-center items-end gap-4 w-full px-3 md:w-auto">
+           <Thread
+           :posts="posts"
+           ></Thread>
+           <!-- <Post></Post> -->
+           <!-- <UserPost @delete="toggleModal"></UserPost> -->
+         </div>
+
     </div>
 
     <Replying
